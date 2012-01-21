@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>meck</title>
+    <meta name="description" content="The mocking library for Erlang">
+    <meta name="author" content="Adam Lindberg <hello@alind.io>">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le javascript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+    <!--<script src="assets/js/google-code-prettify/prettify.js"></script>-->
+    <!--<script>$(function () { prettyPrint() })</script>-->
+    <!--<script src="http://twitter.github.com/bootstrap/1.4.0/bootstrap-modal.js"></script>-->
+    <!--<script src="http://twitter.github.com/bootstrap/1.4.0/bootstrap-alerts.js"></script>-->
+    <!--<script src="http://twitter.github.com/bootstrap/1.4.0/bootstrap-twipsy.js"></script>-->
+    <!--<script src="http://twitter.github.com/bootstrap/1.4.0/bootstrap-popover.js"></script>-->
+    <!--<script src="http://twitter.github.com/bootstrap/1.4.0/bootstrap-dropdown.js"></script>-->
+    <script src="http://twitter.github.com/bootstrap/1.4.0/bootstrap-scrollspy.js"></script>
+    <script src="http://twitter.github.com/bootstrap/1.4.0/bootstrap-tabs.js"></script>
+    <script src="http://twitter.github.com/bootstrap/1.4.0/bootstrap-buttons.js"></script>
+
+    <!-- Le styles -->
+    <link href='http://fonts.googleapis.com/css?family=Days+One' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">
+    <style type="text/css">
+        /* Override some defaults */
+        html, body {
+            background-color: #282828;
+            background-image: url('images/grid.png');
+            padding-bottom: 30px;
+        }
+
+        .container {
+            width: 820px;
+        }
+
+        /* The white background content wrapper */
+        .content {
+            background-color: #fff;
+            padding: 20px;
+            margin: 0 -20px; /* negative indent the amount of the padding to maintain the grid system */
+            -webkit-border-radius: 0 0 6px 6px;
+            -moz-border-radius: 0 0 6px 6px;
+            border-radius: 0 0 6px 6px;
+            -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+            -moz-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+            box-shadow: 0 1px 2px rgba(0,0,0,.15);
+        }
+
+        .big-title {
+            background-color: #f2f2f2;
+            background-image: url('images/dotnoise.png');
+            padding: 20px 20px 10px;
+            margin: -20px -20px 20px;
+        }
+        .big-title h1 {
+            font-family: 'Days One', sans-serif;
+            color: #d94130;
+            font-size: 5em;
+            text-shadow: 0px 1px 1px #9f181b,
+                         0px 2px 1px #9a151b,
+                         0px 3px 1px #8f1519,
+                         0px 4px 1px #781418,
+                         0px 5px 3px rgba(100, 100, 100, 0.4),
+                         0px 6px 7px rgba(100, 100, 100, 0.15),
+                         0px 7px 11px rgba(100, 100, 100, 0.25),
+                         0px 8px 15px rgba(100, 100, 100, 0.3);
+        }
+        .big-title h1 small {
+            color: #404040;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            text-shadow: none;
+        }
+
+        section {
+            padding-top: 40px;
+        }
+
+        /* Give a quick and non-cross-browser friendly divider */
+        /*.content .span8 {
+            margin-left: 0;
+            padding-left: 19px;
+            border-left: 1px solid #eee;
+        }*/
+
+        .topbar .btn {
+            border: 0;
+        }
+
+    </style>
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+</head>
+
+<body>
+
+    <div class="topbar" data-scrollspy="scrollspy">
+        <div class="fill">
+            <div class="container">
+                <a class="brand" href="#">meck</a>
+                <ul class="nav">
+                    <li class="active"><a href="#home">Home</a></li>
+                    <li><a href="#overview">Overview</a></li>
+                    <li><a href="#download">Download</a></li>
+                </ul>
+                <form action="" class="pull-right">
+                    <a class="btn success" href="https://github.com/eproxus/meck/zipball/master">Download</a>
+                    <a class="btn primary" href="https://github.com/eproxus/meck">Fork me on GitHub »</a>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="content">
+            <section id="home">
+            <div class="page-header big-title">
+                <h1>meck <small>The Mocking Library for Erlang</small></h1>
+            </div>
+            </section>
+
+            <section id="overview">
+                <div class="row">
+                    <div class="span14 page-header">
+                        <h2>Overview</h2>
+                    </div>
+                    <div class="span7">
+                        <p>With meck you can easily mock modules in Erlang.
+                        Since meck is intended to be used in testing, you can
+                        also perform some basic validations on the mocked
+                        modules, such as making sure no function is called in a
+                        way it should not.</p>
+                    </div>
+                    <div class="span7">
+                        <pre class="prettyprint">
+Eshell V5.7.5  (abort with ^G)
+1> meck:new(dog).
+ok
+2> meck:expect(dog, bark, fun() -> "Woof!" end).
+ok
+3> dog:bark().
+"Woof!"
+4> meck:validate(dog).
+true
+</pre>
+
+                    </div>
+                </div>
+            </section>
+
+            <div class="row">
+                <div class="span7">
+                    <p>meck automatically renames existing modules in case
+                    they are loaded when you want to mock them, and
+                    restores them upon unloading of the mocked module. It
+                    is also possible to call the original functions from a
+                    mocked module using <code>meck:passthrough/1</code>
+                    from inside an expectation.</p>
+                </div>
+                <div class="span7">
+                    apa hest
+                </div>
+            </div>
+
+            <section id="download">
+            <div class="row">
+                <div class="span14 page-header">
+                    <h2>Download</h2>
+                </div>
+                <div class="span7">
+                    <p>You can clone the project with <a
+                    href="http://git-scm.com/" title="Git, the fast
+                    version control system">Git</a> or you can download
+                    it in either <a
+                    href="http://github.com/eproxus/meck/zipball/master"
+                    title="Zip file containing the latest version of
+                    meck">zip</a> or <a
+                    href="http://github.com/eproxus/meck/tarball/master"
+                    title="Tar file containing the latest version of
+                    meck">tar.gz</a> formats.</p>
+                </div>
+                <div class="span7">
+                    <pre class="prettyprint">
+git clone git://github.com/eproxus/meck</pre>
+                </div>
+            </div>
+            </section>
+
+        </div>
+
+    </div> <!-- /container -->
+
+    <script type="text/javascript">
+        $('#topbar').scrollSpy()
+    </script>
+
+</body>
+</html>
