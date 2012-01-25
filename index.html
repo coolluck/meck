@@ -15,18 +15,18 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
     <!--<script src="assets/js/google-code-prettify/prettify.js"></script>-->
     <!--<script>$(function () { prettyPrint() })</script>-->
-    <!--<script src="http://twitter.github.com/bootstrap/1.4.0/bootstrap-modal.js"></script>-->
-    <!--<script src="http://twitter.github.com/bootstrap/1.4.0/bootstrap-alerts.js"></script>-->
-    <!--<script src="http://twitter.github.com/bootstrap/1.4.0/bootstrap-twipsy.js"></script>-->
-    <!--<script src="http://twitter.github.com/bootstrap/1.4.0/bootstrap-popover.js"></script>-->
-    <!--<script src="http://twitter.github.com/bootstrap/1.4.0/bootstrap-dropdown.js"></script>-->
-    <script src="http://twitter.github.com/bootstrap/1.4.0/bootstrap-scrollspy.js"></script>
-    <script src="http://twitter.github.com/bootstrap/1.4.0/bootstrap-tabs.js"></script>
-    <script src="http://twitter.github.com/bootstrap/1.4.0/bootstrap-buttons.js"></script>
+    <!--<script src="bootstrap/js/bootstrap-modal.js"></script>-->
+    <!--<script src="bootstrap/js/bootstrap-alerts.js"></script>-->
+    <!--<script src="bootstrap/js/bootstrap-twipsy.js"></script>-->
+    <!--<script src="bootstrap/js/bootstrap-popover.js"></script>-->
+    <!--<script src="bootstrap/js/bootstrap-dropdown.js"></script>-->
+    <script src="bootstrap/js/bootstrap-scrollspy.js"></script>
+    <script src="bootstrap/js/bootstrap-tabs.js"></script>
+    <script src="bootstrap/js/bootstrap-buttons.js"></script>
 
     <!-- Le styles -->
     <link href='http://fonts.googleapis.com/css?family=Days+One' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
     <style type="text/css">
         /* Override some defaults */
         html, body {
@@ -52,13 +52,13 @@
             box-shadow: 0 1px 2px rgba(0,0,0,.15);
         }
 
-        .big-title {
+        #big-title {
             background-color: #f2f2f2;
             background-image: url('images/dotnoise.png');
-            padding: 20px 20px 10px;
+            padding: 60px 20px 10px;
             margin: -20px -20px 20px;
         }
-        .big-title h1 {
+        #big-title h1 {
             font-family: 'Days One', sans-serif;
             color: #d94130;
             font-size: 5em;
@@ -71,7 +71,7 @@
                          0px 7px 11px rgba(100, 100, 100, 0.25),
                          0px 8px 15px rgba(100, 100, 100, 0.3);
         }
-        .big-title h1 small {
+        #big-title h1 small {
             color: #404040;
             font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
             text-shadow: none;
@@ -92,6 +92,10 @@
             border: 0;
         }
 
+        .center {
+            text-align: center;
+        }
+
     </style>
 
     <!-- Le fav and touch icons -->
@@ -108,11 +112,12 @@
             <div class="container">
                 <a class="brand" href="#">meck</a>
                 <ul class="nav">
-                    <li class="active"><a href="#home">Home</a></li>
+                    <li class="active"><a href="#big-title">Home</a></li>
                     <li><a href="#overview">Overview</a></li>
                     <li><a href="#download">Download</a></li>
+                    <li><a href="#features">Features</a></li>
                 </ul>
-                <form action="" class="pull-right">
+                <form class="pull-right">
                     <a class="btn success" href="https://github.com/eproxus/meck/zipball/master">Download</a>
                     <a class="btn primary" href="https://github.com/eproxus/meck">Fork me on GitHub »</a>
                 </form>
@@ -122,11 +127,9 @@
 
     <div class="container">
         <div class="content">
-            <section id="home">
-            <div class="page-header big-title">
+            <div id="big-title" class="page-header">
                 <h1>meck <small>The Mocking Library for Erlang</small></h1>
             </div>
-            </section>
 
             <section id="overview">
                 <div class="row">
@@ -173,30 +176,368 @@ true
 
             <section id="download">
             <div class="row">
-                <div class="span14 page-header">
-                    <h2>Download</h2>
-                </div>
-                <div class="span7">
-                    <p>You can clone the project with <a
+                <div class="span14 page-header"><h2>Download</h2></div>
+                <div class="span7 center">
+                    <p>You can clone the project using <a
                     href="http://git-scm.com/" title="Git, the fast
-                    version control system">Git</a> or you can download
-                    it in either <a
-                    href="http://github.com/eproxus/meck/zipball/master"
-                    title="Zip file containing the latest version of
-                    meck">zip</a> or <a
-                    href="http://github.com/eproxus/meck/tarball/master"
-                    title="Tar file containing the latest version of
-                    meck">tar.gz</a> formats.</p>
+                    version control system">Git</a>:</p>
                 </div>
-                <div class="span7">
+                <div class="span7 center">
+                    <p>Or, you can download the latest version as an archive:</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span7 center">
                     <pre class="prettyprint">
 git clone git://github.com/eproxus/meck</pre>
+                </div>
+                <div class="span7 center">
+                    <a class="btn large success" href="https://github.com/eproxus/meck/zipball/master">Download .zip</a>
+                    <a class="btn large success" href="https://github.com/eproxus/meck/tarball/master">Download .tar.gz</a>
                 </div>
             </div>
             </section>
 
-        </div>
+            <section id="features">
+            <div class="row">
+                <div class="span14 page-header">
+                    <h2>Features</h2>
+                </div>
+            </div>
 
+            <div class="span14"><h3>Returning Changing Results</h3></div>
+            <div class="row">
+                <div class="span7">
+                    <p>By using <code>meck:sequence/4</code> you can
+                    return a list of results which will repeat the last
+                    element once the end is reached.</p>
+
+                    <p>This can be useful for testing consumable
+                    functions, such as reading lines from a file or
+                    partial data from a socket.</p>
+                </div>
+                <div class="span7">
+<pre>
+7> meck:sequence(test, read, 0, ["foo", "bar", eof]).
+ok
+8> test:read().
+"foo"
+9> test:read().
+"bar"
+10> test:read().
+eof
+11> test:read().
+eof</pre>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span7">
+
+                    <p>If you want to simulate a never ending list of
+                    results you can use <code>meck:loop/4</code>. This
+                    function makes the mock return a constant stream of
+                    values from the given list.</p>
+                </div>
+                <div class="span7">
+
+<pre>
+12> meck:loop(test, count, 0, [1, 2, 3, 2]).
+ok
+13> [test:count() || _ <- lists:seq(1, 10)].
+[1,2,3,2,1,2,3,2,1,2]
+</pre>
+
+                </div>
+            </div>
+            
+            <div class="span14"><h3>Delete Functions</h3></div>
+            <div class="row">
+                <div class="span7">
+
+                    <p>Removing a function from the mock module is done
+                    with <code>meck:delete/3</code>.</p>
+
+                </div>
+                <div class="span7">
+<pre>
+14> meck:delete(test, foo, 0).
+ok
+16> test:module_info(exports).
+[{read,0},{count,0},{baz,0},{module_info,0},
+ {module_info,1}]
+</pre>
+                </div>
+            </div>
+
+            <div class="span14"><h3>Linking</h3></div>
+            <div class="row">
+                <div class="span7">
+
+                    <p>By default, the mock module is linked to the
+                    process who called <code>meck:new/1</code>. This
+                    means that whenever the caller process crashes the
+                    mock will automatically unload, this is desirable
+                    when running tests as to not leave any mocks around
+                    when the test fails.</p>
+
+                    <p>If you want the mock module to stay around even
+                    if the creator process dies, use the
+                    <code>no_link</code> option when creating the
+                    mock.</p>
+
+                </div>
+                <div class="span7">
+<pre>
+18> meck:new(test, [no_link]).
+ok
+19> exit(crash).
+** exception exit: crash
+20> test:module_info().
+[{exports,[{module_info,0},{module_info,1}]},...]
+</pre>
+                </div>
+            </div>
+
+            <div class="span14"><h3>Validating a Module</h3></div>
+            <div class="row">
+                <div class="span7">
+
+                    <p>Whenever a function is called with the wrong
+                    arguments (the <code>function_clause</code>
+                    exception), or generates any other exceptions, meck
+                    will detect this and invalidate the module.</p>
+
+                    <p>When `meck:validate/1` is called, it will return
+                    the validation status which can be valuable in
+                    testing.</p>
+
+                    <p><span class="label notice tip">Tip</span> In
+                    EUnit, at the end of the test case, use:<br />
+                    <code>?assert(meck:validate(Mod)</code>.</p>
+
+                </div>
+                <div class="span7">
+<pre>
+21> meck:validate(test).
+true
+22> meck:expect(test, foo, fun(1) -> bar end).
+ok
+23> test:foo(1).
+bar
+24> meck:validate(test).
+true
+25> test:foo(a).
+** exception error: no function clause matching
+erl_eval:'-inside-an-interpreted- fun-'(a)
+26> meck:validate(test).
+false
+</pre>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="span7">
+
+                    <p>Whenever you want an exception to be the expected
+                    behavior, use <code>meck:exception/2</code> inside
+                    the expectations so that meck will know.</p>
+
+                </div>
+                <div class="span7">
+<pre>
+32> meck:expect(test, foo,
+                fun(valid) ->
+                    meck:exception(exit, crash)
+                end).
+ok
+33> test:foo(valid).
+** exception exit: crash
+     in function meck:exception/2
+     in call from test:foo/0
+        called as test:foo()
+34> meck:validate(test).
+true
+</pre>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="span7">
+
+                    <p>To make it easier during testing, the exact
+                    function call together with its arguments is
+                    injected into the stack trace whenever an exception
+                    occurs.</p>
+
+                </div>
+                <div class="span7">
+<pre>
+35> try test:foo(valid)
+    catch _:_ -> erlang:get_stacktrace() end.
+[{meck,exception,2},
+ {meck,exec,4},
+ <strong>{test,foo,[valid]},</strong>
+ {erl_eval,do_apply,5},
+ {erl_eval,try_clauses,8},
+ {shell,exprs,7},
+ {shell,eval_exprs,7},
+ {shell,eval_loop,3}]
+</pre>
+                </div>
+            </div>
+
+            <div class="span14"><h3>Original Modules</h3></div>
+            <div class="row">
+                <div class="span7">
+
+                    <p>By default, a mocked module is created with no
+                    functions. If you want to keep the functions of the
+                    original module, use the <code>passthrough</code>
+                    option when creating it.</p>
+
+                    <p>That way, it is possible to override certain
+                    functions leaving others intact.</p>
+
+                </div>
+                <div class="span7">
+<pre>
+36> l(original).
+{module,original}
+37> original:a().
+a
+38> original:b().
+b
+8> meck:new(original, [no_link, passthrough]).
+ok
+9> meck:expect(original, b, 0, z).
+ok
+10> original:a().
+a
+11> original:b().
+z
+</pre>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="span7">
+
+                    <p>You still have access to the original modules
+                    functions. Use the function
+                    <code>meck:passthrough/1</code> to call the original
+                    function from an expectation.</p>
+
+                </div>
+                <div class="span7">
+<pre>
+14> original:double(1).
+2
+15> meck:expect(original, double,
+                fun(1) -> foo;
+                   (A) -> meck:passthrough([A])
+                end).
+ok
+16> original:double(1).
+foo
+17> original:double(2).
+4
+</pre>
+                </div>
+            </div>
+
+            <div class="span14"><h3>History</h3></div>
+            <div class="row">
+                <div class="span7">
+
+                    <p>A interaction history is saved for every mock,
+                    which can be inspected at any time. This history
+                    contains all calls to the module and their return
+                    values or exceptions.</p>
+
+                    <p>If a call is successful, the history item is a
+                    3-tuple:<br /><code>{Caller, MFA,
+                        Result}</code>.</p>
+
+                    <p>If a call generated an exception, the history
+                    item is a 5-tuple:<br /><code>{Caller, MFA, Class,
+                        Reason, Stacktrace}</code><br />where
+                            <code>Class</code> is the exception type and
+                            <code>Reason</code> the reason.</p>
+
+                </div>
+                <div class="span7">
+<pre>
+18> meck:expect(original, a, fun(1) -> foo end).
+ok
+19> original:a(2).
+** exception error: function clause...
+20> meck:history(original). 
+[{<0.84.0>,{original,a,[]},a}, <em>% {Caller, MFA, Result}</em>
+ {<0.84.0>,{original,b,[]},z},
+ {<0.84.0>,{original,c,[1]},foo},
+ {<0.84.0>,{original,a,[2]}, 
+  error,function_clause, [{original,a,[2]},...]}]
+  <em>% {Caller, MFA, Class, Reason, Stacktrace}</em>
+</pre>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="span7">
+
+                    <p>Common queries that search through the history are available.</p>
+
+                    <p>To see if a certain function has been called
+                    <code>meck:called/3</code> is used. Any argument can
+                    be a wild card (which is the atom
+                    <code>'_'</code>).</p>
+
+                </div>
+                <div class="span7">
+<pre>
+21> meck:called(original, '_', '_').
+true
+22> meck:called(original, a, ['_']).
+true
+22> meck:called(original, a, [2]).
+true
+23> meck:called(original, x, ["nope"]).
+false
+</pre>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="span7">
+
+                    <p>The number of calls to a given function can be
+                    retrieved by using
+                    <code>meck:num_calls/3</code>.</p>
+
+                    <p><span class="label notice">Tip</span> Both
+                    <code>called/3</code> and <code>num_calls/3</code>
+                    has an equivalent version with four arguments where
+                    the last argument is <code>Pid</code>, returning
+                    results only for that process.</p>
+
+                </div>
+                <div class="span7">
+<pre>
+21> meck:num_calls(original, '_', '_').
+5
+22> meck:num_calls(original, a, ['_']).
+2
+22> meck:num_calls(original, a, [2]).
+1
+23> meck:num_calls(original, x, ["nope"]).
+0
+</pre>
+                </div>
+            </div>
+
+            </section>
+
+        </div> <!-- /content -->
     </div> <!-- /container -->
 
     <script type="text/javascript">
